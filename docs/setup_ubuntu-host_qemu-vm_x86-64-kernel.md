@@ -1,8 +1,14 @@
-# Setup: Ubuntu host, QEMU vm, x86-64 kernel
+# Setup: Ubuntu host, QEMU vm, x84-64 kernel
 
 These are the instructions on how to fuzz the x86-64 kernel in a QEMU with Ubuntu 14.04 on the host machine and Debian Wheezy in the QEMU instances.
 
 ## GCC
+
+```
+sudo apt-get install gcc-5-plugin-dev
+```
+
+**not needed: do not follow the instructions below**
 
 Since syzkaller requires coverage support in GCC, we need to use a recent GCC version. To checkout GCC 7.1.0 sources to `$GCC` dir:
 ``` bash
@@ -87,7 +93,7 @@ make oldconfig
 
 Build the kernel with previously built GCC:
 ```
-make CC='$GCC/install/bin/gcc' -j64
+make -j
 ```
 
 Now you should have `vmlinux` (kernel binary) and `bzImage` (packed kernel image):
