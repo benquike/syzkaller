@@ -228,6 +228,7 @@ Create manager config like this:
 		"count": 4,
 		"kernel": "/linux/arch/x86/boot/bzImage",
 		"cpu": 2,
+		"qemu_args": "-enable-kvm",
 		"mem": 2048
 	}
 }
